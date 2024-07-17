@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>曾麒鴻 - 個人網站</title>
     <style>
+        /* 定義根變數以便全站統一調色 */
         :root {
-            --color-background: #e8e4e1;
-            --color-text: #5f5f5f;
-            --color-primary: #967e76;
-            --color-secondary: #d7c0ae;
-            --color-accent: #b7b7a4;
+            --color-background: #f3f4f6;
+            --color-text: #333;
+            --color-primary: #5a67d8;
+            --color-secondary: #edf2f7;
+            --color-accent: #ecc94b;
         }
+        /* 設置整個網頁的基礎樣式 */
         body {
             font-family: 'Microsoft JhengHei', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
@@ -20,22 +22,25 @@
             background-color: var(--color-background);
             color: var(--color-text);
         }
+        /* 設置容器樣式，居中顯示並限制最大寬度 */
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
+        /* 設置頁首樣式 */
         header {
             background-color: var(--color-primary);
             color: var(--color-background);
-            padding: 40px 0;
+            padding: 50px 0;
             text-align: center;
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
             font-weight: bold;
         }
+        /* 設置個人簡介區塊樣式 */
         .profile {
             display: flex;
             align-items: center;
@@ -43,7 +48,9 @@
             background-color: var(--color-secondary);
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        /* 設置個人照片樣式 */
         .profile-image {
             width: 150px;
             height: 150px;
@@ -55,15 +62,16 @@
         .section {
             margin-top: 40px;
             background-color: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         h2 {
             color: var(--color-primary);
-            border-bottom: 2px solid var(--color-accent);
+            border-bottom: 3px solid var(--color-accent);
             padding-bottom: 10px;
             font-weight: bold;
+            margin-bottom: 20px;
         }
         h3 {
             color: var(--color-text);
@@ -75,7 +83,8 @@
             padding: 0;
         }
         ul li {
-            padding: 5px 0;
+            padding: 8px 0;
+            line-height: 1.6;
         }
         .contact-info {
             background-color: var(--color-accent);
@@ -83,10 +92,22 @@
             padding: 20px;
             border-radius: 10px;
             margin-top: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info p {
+            margin: 10px 0;
+        }
+        /* 設置響應式樣式 */
+        @media (min-width: 600px) {
+            .profile {
+                flex-direction: row;
+                text-align: left;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- 頁首 -->
     <header>
         <div class="container">
             <h1>曾麒鴻</h1>
@@ -94,8 +115,9 @@
     </header>
 
     <div class="container">
+        <!-- 個人簡介區塊 -->
         <section class="profile">
-            <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
+            <img src="https://via.placeholder.com/150" alt="曾麒鴻的照片" class="profile-image">
             <div>
                 <h2>PROFILE</h2>
                 <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
@@ -115,6 +137,7 @@
             </div>
         </section>
 
+        <!-- 工作經歷區塊 -->
         <section class="section">
             <h2>EXPERIENCE</h2>
             <h3>Laptop Hardware Engineer</h3>
@@ -123,14 +146,14 @@
             <ul>
                 <li>PCB layout review(sub board and FPC)</li>
                 <li>Drawing schematic for NB（sub board）</li>
-                <li>design FPC/FFC and check pin define</li>
+                <li>Design FPC/FFC and check pin define</li>
                 <li>Rework electronic components</li>
                 <li>Load BOM and BOM compare</li>
                 <li>EA measure:
                     <ol>
-                        <li>panel power sequence</li>
-                        <li>power ripple and power routing drop</li>
-                        <li>eye diagram for EDP USB HDMI</li>
+                        <li>Panel power sequence</li>
+                        <li>Power ripple and power routing drop</li>
+                        <li>Eye diagram for EDP USB HDMI</li>
                     </ol>
                 </li>
             </ul>
@@ -145,6 +168,7 @@
             </ul>
         </section>
 
+        <!-- 教育背景區塊 -->
         <section class="section">
             <h2>EDUCATION</h2>
             <h3>Master of Institute of Photonics Technologies</h3>
@@ -159,6 +183,7 @@ developed innovative topics and more efficient systems.</p>
             <p>2017-2021</p>
         </section>
 
+        <!-- 技能區塊 -->
         <section class="section">
             <h2>SKILLS</h2>
             <ul>
@@ -172,6 +197,7 @@ developed innovative topics and more efficient systems.</p>
             </ul>
         </section>
 
+        <!-- 語言能力區塊 -->
         <section class="section">
             <h2>LANGUAGES</h2>
             <ul>
@@ -180,6 +206,7 @@ developed innovative topics and more efficient systems.</p>
             </ul>
         </section>
 
+        <!-- 聯絡資訊區塊 -->
         <section class="contact-info">
             <h2>CONTACT</h2>
             <p>Email: tim87915@gmail.com</p>
