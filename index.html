@@ -9,7 +9,7 @@
         :root {
             --color-background: #f3f4f6;
             --color-text: #333;
-            --color-primary: #5a67d8;
+            --color-primary: #FF5722; /* 更新標題顏色 */
             --color-secondary: #edf2f7;
             --color-accent: #ecc94b;
         }
@@ -67,7 +67,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         h2 {
-            color: var(--color-primary);
+            color: var(--color-primary); /* 更新標題顏色 */
             border-bottom: 3px solid var(--color-accent);
             padding-bottom: 10px;
             font-weight: bold;
@@ -83,136 +83,4 @@
             padding: 0;
         }
         ul li {
-            padding: 8px 0;
-            line-height: 1.6;
-        }
-        .contact-info {
-            background-color: var(--color-accent);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .contact-info p {
-            margin: 10px 0;
-        }
-        /* 設置響應式樣式 */
-        @media (min-width: 600px) {
-            .profile {
-                flex-direction: row;
-                text-align: left;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- 頁首 -->
-    <header>
-        <div class="container">
-            <h1>曾麒鴻</h1>
-        </div>
-    </header>
-
-    <div class="container">
-        <!-- 個人簡介區塊 -->
-        <section class="profile">
-            <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
-            <div>
-                <h2>PROFILE</h2>
-                <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
-好奇心強的我在大學期間參加系學會並擔任副會長，舉辦與協辦了許多大大小小
-的活動，每一個活動都需要細心的規劃以及建立良好的溝通才能讓預定好的流程
-能夠順暢運行，因此從中也累積了許多與他人合作與溝通的經驗，並且保持豐富
-的想像力使我在這一年的經驗中創造出了許多不一樣的回憶及成就。</p>
-                <p>喜歡挑戰的我選擇了物理系，系上有許多扎實的邏輯數學課程，也有充實的實驗
-課程，在學間讓我培養了用邏輯及理論去思考問題的能力也讓我能夠進修碩士。
-實驗室主要是做光纖感測系統，包括使用既有的元件製造窄頻寬的雷射去當作感
-測光源，以及使用干涉儀及光譜儀來暸解光的特性並把收集到的數據使用軟體分
-析，對於光纖光學的一些系統也有比較多的暸解。</p>
-                <p>碩士期間也經歷了許多挑戰，在碩二剛開始就被告知需更換題目，導致原本的實
-驗結果形同虛設，但也因為如此我才能在另外一個方向上放手一搏，並經過許多
-次的來回討論也因為上個題目我把相關器材徹底了解，所以實驗進展相當迅速，
-便能在第二年學期末順利畢業。</p>
-            </div>
-        </section>
-
-        <!-- 工作經歷區塊 -->
-        <section class="section">
-            <h2>EXPERIENCE</h2>
-            <h3>Laptop Hardware Engineer</h3>
-            <p>Compal Electronics</p>
-            <p>Dec 2023 - Present</p>
-            <ul>
-                <li>PCB layout review(sub board and FPC)</li>
-                <li>Drawing schematic for NB（sub board）</li>
-                <li>Design FPC/FFC and check pin define</li>
-                <li>Rework electronic components</li>
-                <li>Load BOM and BOM compare</li>
-                <li>EA measure:
-                    <ol>
-                        <li>Panel power sequence</li>
-                        <li>Power ripple and power routing drop</li>
-                        <li>Eye diagram for EDP USB HDMI</li>
-                    </ol>
-                </li>
-            </ul>
-
-            <h3>Vice President of the Physics Student Council</h3>
-            <p>Chung Yuan Christian University</p>
-            <p>June 2019 - Oct 2020</p>
-            <ul>
-                <li>Led a team to organize various events.</li>
-                <li>Reviewing budgets for various activities.</li>
-                <li>Managing diversity among team members.</li>
-            </ul>
-        </section>
-
-        <!-- 教育背景區塊 -->
-        <section class="section">
-            <h2>EDUCATION</h2>
-            <h3>Master of Institute of Photonics Technologies</h3>
-            <p>國立清華大學 National Tsing Hua University</p>
-            <p>2021-2023</p>
-            <p>Master's research experience: By discussing and brainstorming within the existing experimental
-framework and using the available experimental equipment, we
-developed innovative topics and more efficient systems.</p>
-
-            <h3>Bachelor of Physics</h3>
-            <p>中原大學 Chung Yuan Christian University</p>
-            <p>2017-2021</p>
-        </section>
-
-        <!-- 技能區塊 -->
-        <section class="section">
-            <h2>SKILLS</h2>
-            <ul>
-                <li>Narrow line width laser of fiber ring</li>
-                <li>Fiber sensor of FBG</li>
-                <li>Optical Time Domain Reflectometer</li>
-                <li>Matlab</li>
-                <li>Optical experiment set up</li>
-                <li>Arduino simple circuit system</li>
-                <li>Python</li>
-            </ul>
-        </section>
-
-        <!-- 語言能力區塊 -->
-        <section class="section">
-            <h2>LANGUAGES</h2>
-            <ul>
-                <li>English</li>
-                <li>Mandarin</li>
-            </ul>
-        </section>
-
-        <!-- 聯絡資訊區塊 -->
-        <section class="contact-info">
-            <h2>CONTACT</h2>
-            <p>Email: tim87915@gmail.com</p>
-            <p>電話: +886 0988885015</p>
-            <p>地址: 新北市板橋區板新路202號14樓</p>
-        </section>
-    </div>
-</body>
-</html>
+            padding: 8
