@@ -1,3 +1,7 @@
+個人網站 HTML
+Preview
+Code
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -5,53 +9,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>曾麒鴻 - 個人網站</title>
     <style>
+        :root {
+            --color-background: #e8e4e1;
+            --color-text: #5f5f5f;
+            --color-primary: #967e76;
+            --color-secondary: #d7c0ae;
+            --color-accent: #b7b7a4;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: var(--color-background);
+            color: var(--color-text);
         }
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         header {
-            background: #35424a;
-            color: white;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #e8491d 3px solid;
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            padding: 40px 0;
+            text-align: center;
         }
         header h1 {
             margin: 0;
-            text-align: center;
-            padding-bottom: 20px;
-        }
-        .profile, .experience, .education, .skills {
-            padding: 20px 0;
-            border-bottom: 1px solid #ccc;
+            font-size: 2.5em;
         }
         .profile {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
+            margin-top: 40px;
+            background-color: var(--color-secondary);
+            padding: 20px;
+            border-radius: 10px;
         }
         .profile-image {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             margin-right: 20px;
             object-fit: cover;
+            border: 5px solid var(--color-accent);
         }
-        .profile-content {
-            flex: 1;
+        .section {
+            margin-top: 40px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         h2 {
-            color: #35424a;
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: var(--color-text);
+            margin-top: 20px;
         }
         ul {
             list-style-type: none;
@@ -59,6 +77,13 @@
         }
         ul li {
             padding: 5px 0;
+        }
+        .contact-info {
+            background-color: var(--color-accent);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -71,14 +96,14 @@
 
     <div class="container">
         <section class="profile">
-            <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
-            <div class="profile-content">
+            <img src="https://via.placeholder.com/150" alt="曾麒鴻的照片" class="profile-image">
+            <div>
                 <h2>個人簡介</h2>
                 <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。我是一位好奇心強、喜歡挑戰的人，擅長邏輯思考和解決問題。在學期間，我參與了許多活動的組織和管理，培養了良好的溝通和合作能力。</p>
             </div>
         </section>
 
-        <section class="experience">
+        <section class="section">
             <h2>工作經驗</h2>
             <h3>仁寶電腦 - 筆記型電腦硬體工程師</h3>
             <p>2023年12月 - 至今</p>
@@ -100,7 +125,7 @@
             </ul>
         </section>
 
-        <section class="education">
+        <section class="section">
             <h2>教育背景</h2>
             <h3>國立清華大學 - 光電工程研究所碩士</h3>
             <p>2021年 - 2023年</p>
@@ -110,7 +135,7 @@
             <p>2017年 - 2021年</p>
         </section>
 
-        <section class="skills">
+        <section class="section">
             <h2>技能</h2>
             <ul>
                 <li>窄線寬光纖環形雷射</li>
@@ -123,7 +148,7 @@
             </ul>
         </section>
 
-        <section class="contact">
+        <section class="contact-info">
             <h2>聯絡方式</h2>
             <p>Email: tim87915@gmail.com</p>
             <p>電話: +886 0988885015</p>
