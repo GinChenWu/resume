@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>曾麒鴻 - 個人網站</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-background: #f0f0f0;
-            --color-text: #333333;
-            --color-primary: #607d8b; /* 主要顏色 */
-            --color-secondary: #ffffff; /* 次要背景色 */
-            --color-accent: #ff9800; /* 強調顏色 */
-            --color-hover: #eeeeee; /* 滑鼠懸停顏色 */
+            --color-background: #f0f4f8;
+            --color-text: #2d3748;
+            --color-primary: #4a5568;
+            --color-secondary: #ffffff;
+            --color-accent: #ed8936;
+            --color-hover: #edf2f7;
             --font-family: 'Roboto', sans-serif;
         }
         body {
@@ -23,89 +24,100 @@
             color: var(--color-text);
         }
         .container {
-            display: flex;
-            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-        }
-        .content {
-            max-width: 800px;
-            width: 100%;
         }
         header {
             background-color: var(--color-primary);
             color: var(--color-secondary);
-            padding: 30px 0;
+            padding: 50px 0;
             text-align: center;
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
-            font-weight: bold;
+            font-size: 3em;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
         .profile, .section, .contact-info {
             background-color: var(--color-secondary);
-            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            transition: box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
         .profile:hover, .section:hover, .contact-info:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        .profile-content {
-            display: none;
-        }
-        .profile.expanded .profile-content {
-            display: block;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
         .profile-header {
             display: flex;
             align-items: center;
+            padding: 20px;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
             cursor: pointer;
-            border-bottom: 1px solid var(--color-primary);
-            padding-bottom: 10px;
-            margin-bottom: 10px;
         }
         .profile-header h2 {
             flex-grow: 1;
             margin: 0;
             font-size: 1.8em;
+            font-weight: 700;
         }
         .profile-image {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             margin-right: 20px;
             object-fit: cover;
+            border: 3px solid var(--color-secondary);
         }
         .toggle-btn {
             background: none;
             border: none;
             font-size: 1.5em;
             cursor: pointer;
-            color: var(--color-primary);
+            color: var(--color-secondary);
             transition: transform 0.3s ease;
+        }
+        .profile-content {
+            padding: 20px;
+            display: none;
+        }
+        .profile.expanded .profile-content {
+            display: block;
         }
         .profile.expanded .toggle-btn {
             transform: rotate(180deg);
         }
         h2 {
             color: var(--color-primary);
-            border-bottom: 2px solid var(--color-accent);
-            padding-bottom: 10px;
-            font-weight: bold;
+            font-size: 2em;
+            font-weight: 700;
             margin-bottom: 20px;
-            font-size: 1.8em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-accent);
         }
         h3 {
             color: var(--color-accent);
-            margin-top: 20px;
-            font-weight: bold;
             font-size: 1.3em;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .section, .contact-info {
+            padding: 30px;
         }
         ul {
             list-style-type: none;
@@ -113,26 +125,47 @@
         }
         ul li {
             padding: 8px 0;
-            line-height: 1.6;
+            position: relative;
+            padding-left: 20px;
+        }
+        ul li::before {
+            content: '•';
+            color: var(--color-accent);
+            position: absolute;
+            left: 0;
         }
         .contact-info {
-            background-color: var(--color-accent);
-            color: var(--color-primary);
-            padding: 20px;
-            border-radius: 10px;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+        }
+        .contact-info h2 {
+            color: var(--color-secondary);
+        }
+        .contact-info h2::after {
+            background-color: var(--color-secondary);
         }
         .main-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
-        .main-content > div {
-            flex: 1;
-            min-width: 300px;
-        }
-        @media (min-width: 600px) {
-            .profile {
-                text-align: left;
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 30px 0;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -145,101 +178,99 @@
     </header>
 
     <div class="container">
-        <div class="content">
-            <section class="profile">
-                <div class="profile-header" onclick="toggleProfile()">
-                    <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
-                    <h2>PROFILE</h2>
-                    <button class="toggle-btn">&#9660;</button>
-                </div>
-                <div class="profile-content">
-                    <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
+        <section class="profile">
+            <div class="profile-header" onclick="toggleProfile()">
+                <img src="/api/placeholder/100/100" alt="曾麒鴻的照片" class="profile-image">
+                <h2>PROFILE</h2>
+                <button class="toggle-btn">&#9660;</button>
+            </div>
+            <div class="profile-content">
+                <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
 好奇心強的我在大學期間參加系學會並擔任副會長，舉辦與協辦了許多大大小小
 的活動，每一個活動都需要細心的規劃以及建立良好的溝通才能讓預定好的流程
 能夠順暢運行，因此從中也累積了許多與他人合作與溝通的經驗，並且保持豐富
 的想像力使我在這一年的經驗中創造出了許多不一樣的回憶及成就。</p>
-                    <p>喜歡挑戰的我選擇了物理系，系上有許多扎實的邏輯數學課程，也有充實的實驗
+                <p>喜歡挑戰的我選擇了物理系，系上有許多扎實的邏輯數學課程，也有充實的實驗
 課程，在學間讓我培養了用邏輯及理論去思考問題的能力也讓我能夠進修碩士。
 實驗室主要是做光纖感測系統，包括使用既有的元件製造窄頻寬的雷射去當作感
 測光源，以及使用干涉儀及光譜儀來暸解光的特性並把收集到的數據使用軟體分
 析，對於光纖光學的一些系統也有比較多的暸解。</p>
-                    <p>碩士期間也經歷了許多挑戰，在碩二剛開始就被告知需更換題目，導致原本的實
+                <p>碩士期間也經歷了許多挑戰，在碩二剛開始就被告知需更換題目，導致原本的實
 驗結果形同虛設，但也因為如此我才能在另外一個方向上放手一搏，並經過許多
 次的來回討論也因為上個題目我把相關器材徹底了解，所以實驗進展相當迅速，
 便能在第二年學期末順利畢業。</p>
-                </div>
-            </section>
+            </div>
+        </section>
 
-            <div class="main-content">
-                <div>
-                    <section class="section">
-                        <h2>EXPERIENCE</h2>
-                        <h3>Laptop Hardware Engineer</h3>
-                        <h3>Compal Electronics</h3>
-                        <p>Dec 2023 - Present</p>
-                        <ul>
-                            <li>PCB layout review(sub board and FPC)</li>
-                            <li>Drawing schematic for NB（sub board）</li>
-                            <li>Design FPC/FFC and check pin define</li>
-                            <li>Rework electronic components</li>
-                            <li>Load BOM and BOM compare</li>
-                            <li>EA measure:
-                                <ol>
-                                    <li>Panel power sequence</li>
-                                    <li>Power ripple and power routing drop</li>
-                                    <li>Eye diagram for EDP USB HDMI</li>
-                                </ol>
-                            </li>
-                        </ul>
+        <div class="main-content">
+            <div>
+                <section class="section">
+                    <h2>EXPERIENCE</h2>
+                    <h3>Laptop Hardware Engineer</h3>
+                    <h3>Compal Electronics</h3>
+                    <p>Dec 2023 - Present</p>
+                    <ul>
+                        <li>PCB layout review(sub board and FPC)</li>
+                        <li>Drawing schematic for NB（sub board）</li>
+                        <li>Design FPC/FFC and check pin define</li>
+                        <li>Rework electronic components</li>
+                        <li>Load BOM and BOM compare</li>
+                        <li>EA measure:
+                            <ol>
+                                <li>Panel power sequence</li>
+                                <li>Power ripple and power routing drop</li>
+                                <li>Eye diagram for EDP USB HDMI</li>
+                            </ol>
+                        </li>
+                    </ul>
 
-                        <h3>Vice President of the Physics Student Council</h3>
-                        <h3>Chung Yuan Christian University</h3>
-                        <p>June 2019 - Oct 2020</p>
-                        <ul>
-                            <li>Led a team to organize various events.</li>
-                            <li>Reviewing budgets for various activities.</li>
-                            <li>Managing diversity among team members.</li>
-                        </ul>
-                    </section>
-                </div>
-
-                <div>
-                    <section class="section">
-                        <h2>EDUCATION</h2>
-                        <h3>Master of Institute of Photonics Technologies</h3>
-                        <h3>國立清華大學 National Tsing Hua University</h3>
-                        <p>2021-2023</p>
-                        <p>Master's research experience: By discussing and brainstorming within the existing experimental
-                        framework and using the available experimental equipment, we
-                        developed innovative topics and more efficient systems.</p>
-
-                        <h3>Bachelor of Physics</h3>
-                        <h3>中原大學 Chung Yuan Christian University</h3>
-                        <p>2017-2021</p>
-                    </section>
-
-                    <section class="section">
-                        <h2>SKILLS</h2>
-                        <ul>
-                            <li>Narrow line width laser of fiber ring</li>
-                            <li>Fiber sensor of FBG</li>
-                            <li>Optical Time Domain Reflectometer</li>
-                            <li>Matlab</li>
-                            <li>Optical experiment set up</li>
-                            <li>Arduino simple circuit system</li>
-                            <li>Python</li>
-                        </ul>
-                    </section>
-                </div>
+                    <h3>Vice President of the Physics Student Council</h3>
+                    <h3>Chung Yuan Christian University</h3>
+                    <p>June 2019 - Oct 2020</p>
+                    <ul>
+                        <li>Led a team to organize various events.</li>
+                        <li>Reviewing budgets for various activities.</li>
+                        <li>Managing diversity among team members.</li>
+                    </ul>
+                </section>
             </div>
 
-            <section class="contact-info">
-                <h2>CONTACT</h2>
-                <p>Email: tim87915@gmail.com</p>
-                <p>Phone: +886 0988885015</p>
-                <p>Address: 新北市板橋區板新路202號14樓</p>
-            </section>
+            <div>
+                <section class="section">
+                    <h2>EDUCATION</h2>
+                    <h3>Master of Institute of Photonics Technologies</h3>
+                    <h3>國立清華大學 National Tsing Hua University</h3>
+                    <p>2021-2023</p>
+                    <p>Master's research experience: By discussing and brainstorming within the existing experimental
+                    framework and using the available experimental equipment, we
+                    developed innovative topics and more efficient systems.</p>
+
+                    <h3>Bachelor of Physics</h3>
+                    <h3>中原大學 Chung Yuan Christian University</h3>
+                    <p>2017-2021</p>
+                </section>
+
+                <section class="section">
+                    <h2>SKILLS</h2>
+                    <ul>
+                        <li>Narrow line width laser of fiber ring</li>
+                        <li>Fiber sensor of FBG</li>
+                        <li>Optical Time Domain Reflectometer</li>
+                        <li>Matlab</li>
+                        <li>Optical experiment set up</li>
+                        <li>Arduino simple circuit system</li>
+                        <li>Python</li>
+                    </ul>
+                </section>
+            </div>
         </div>
+
+        <section class="contact-info">
+            <h2>CONTACT</h2>
+            <p>Email: tim87915@gmail.com</p>
+            <p>Phone: +886 0988885015</p>
+            <p>Address: 新北市板橋區板新路202號14樓</p>
+        </section>
     </div>
 
     <script>
