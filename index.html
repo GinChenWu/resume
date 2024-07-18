@@ -6,12 +6,12 @@
     <title>曾麒鴻 - 個人網站</title>
     <style>
         :root {
-            --color-background: #f9f9f9;
-            --color-text: #333;
-            --color-primary: #1e88e5;
-            --color-secondary: #ffffff;
-            --color-accent: #e0e0e0;
-            --color-highlight: #ff5252;
+            --color-background: #f0f0f0;
+            --color-text: #333333;
+            --color-primary: #3f51b5; /* 主要顏色 */
+            --color-secondary: #ffffff; /* 次要背景色 */
+            --color-accent: #ff5722; /* 強調顏色 */
+            --color-hover: #eeeeee; /* 滑鼠懸停顏色 */
             --font-family: 'Roboto', sans-serif;
         }
         body {
@@ -38,6 +38,7 @@
             text-align: center;
             width: 100%;
             border-radius: 8px;
+            margin-bottom: 20px;
         }
         header h1 {
             margin: 0;
@@ -65,11 +66,14 @@
             display: flex;
             align-items: center;
             cursor: pointer;
+            border-bottom: 1px solid var(--color-primary);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
         }
         .profile-header h2 {
             flex-grow: 1;
             margin: 0;
-            font-size: 1.5em;
+            font-size: 1.8em;
         }
         .profile-image {
             width: 150px;
@@ -98,7 +102,7 @@
             font-size: 1.8em;
         }
         h3 {
-            color: var(--color-highlight);
+            color: var(--color-accent);
             margin-top: 20px;
             font-weight: bold;
             font-size: 1.3em;
@@ -197,14 +201,6 @@
                             <li>Managing diversity among team members.</li>
                         </ul>
                     </section>
-
-                    <section class="section">
-                        <h2>LANGUAGES</h2>
-                        <ul>
-                            <li>Mandarin</li>
-                            <li>English</li>
-                        </ul>
-                    </section>
                 </div>
 
                 <div>
@@ -214,8 +210,8 @@
                         <h3>國立清華大學 National Tsing Hua University</h3>
                         <p>2021-2023</p>
                         <p>Master's research experience: By discussing and brainstorming within the existing experimental
-framework and using the available experimental equipment, we
-developed innovative topics and more efficient systems.</p>
+                        framework and using the available experimental equipment, we
+                        developed innovative topics and more efficient systems.</p>
 
                         <h3>Bachelor of Physics</h3>
                         <h3>中原大學 Chung Yuan Christian University</h3>
