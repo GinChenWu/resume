@@ -6,14 +6,16 @@
     <title>曾麒鴻 - 個人網站</title>
     <style>
         :root {
-            --color-background: #ffffff;
-            --color-text: #000000;
-            --color-primary: #333333;
-            --color-secondary: #f4f4f4;
+            --color-background: #f9f9f9;
+            --color-text: #333;
+            --color-primary: #1e88e5;
+            --color-secondary: #ffffff;
             --color-accent: #e0e0e0;
+            --color-highlight: #ff5252;
+            --font-family: 'Roboto', sans-serif;
         }
         body {
-            font-family: 'Microsoft JhengHei', 'Helvetica Neue', Arial, sans-serif;
+            font-family: var(--font-family);
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -27,25 +29,31 @@
         }
         .content {
             max-width: 800px;
+            width: 100%;
         }
         header {
             background-color: var(--color-primary);
-            color: var(--color-background);
+            color: var(--color-secondary);
             padding: 30px 0;
             text-align: center;
             width: 100%;
+            border-radius: 8px;
         }
         header h1 {
             margin: 0;
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: bold;
         }
         .profile, .section, .contact-info {
             background-color: var(--color-secondary);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            transition: box-shadow 0.3s ease;
+        }
+        .profile:hover, .section:hover, .contact-info:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .profile-content {
             display: none;
@@ -61,6 +69,7 @@
         .profile-header h2 {
             flex-grow: 1;
             margin: 0;
+            font-size: 1.5em;
         }
         .profile-image {
             width: 150px;
@@ -74,6 +83,11 @@
             border: none;
             font-size: 1.5em;
             cursor: pointer;
+            color: var(--color-primary);
+            transition: transform 0.3s ease;
+        }
+        .profile.expanded .toggle-btn {
+            transform: rotate(180deg);
         }
         h2 {
             color: var(--color-primary);
@@ -81,11 +95,13 @@
             padding-bottom: 10px;
             font-weight: bold;
             margin-bottom: 20px;
+            font-size: 1.8em;
         }
         h3 {
-            color: var(--color-primary);
+            color: var(--color-highlight);
             margin-top: 20px;
             font-weight: bold;
+            font-size: 1.3em;
         }
         ul {
             list-style-type: none;
@@ -100,16 +116,15 @@
             color: var(--color-primary);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .main-content {
             display: flex;
             flex-wrap: wrap;
+            gap: 20px;
         }
         .main-content > div {
             flex: 1;
             min-width: 300px;
-            padding: 10px;
         }
         @media (min-width: 600px) {
             .profile {
@@ -128,10 +143,10 @@
     <div class="container">
         <div class="content">
             <section class="profile">
-                <div class="profile-header">
+                <div class="profile-header" onclick="toggleProfile()">
                     <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
                     <h2>PROFILE</h2>
-                    <button class="toggle-btn" onclick="toggleProfile()">&#9660;</button>
+                    <button class="toggle-btn">&#9660;</button>
                 </div>
                 <div class="profile-content">
                     <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
