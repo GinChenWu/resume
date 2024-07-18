@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>曾麒鴻 - 個人網站</title>
     <style>
-        /* 定義根變數以便全站統一調色 */
         :root {
             --color-background: #ffffff;
             --color-text: #000000;
-            --color-primary: #333333; /* 標題顏色 */
+            --color-primary: #333333;
             --color-secondary: #f4f4f4;
             --color-accent: #e0e0e0;
         }
-        /* 設置整個網頁的基礎樣式 */
         body {
             font-family: 'Microsoft JhengHei', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
@@ -22,57 +20,53 @@
             background-color: var(--color-background);
             color: var(--color-text);
         }
-        /* 設置容器樣式，居中顯示並限制最大寬度 */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: center;
             padding: 20px;
         }
-        /* 設置頁首樣式 */
+        .content {
+            max-width: 800px;
+        }
         header {
             background-color: var(--color-primary);
             color: var(--color-background);
             padding: 30px 0;
             text-align: center;
+            width: 100%;
         }
         header h1 {
             margin: 0;
-            font-size: 2em; /* 調整標題大小 */
+            font-size: 2em;
             font-weight: bold;
         }
-        /* 設置個人簡介區塊樣式 */
-        .profile {
-            margin-top: 40px;
+        .profile, .section, .contact-info {
             background-color: var(--color-secondary);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
-        /* 設置個人照片樣式 */
+        .profile {
+            display: flex;
+            align-items: center;
+        }
         .profile-image {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             margin-right: 20px;
             object-fit: cover;
-            float: left;
-        }
-        .section {
-            margin-top: 40px;
-            background-color: var(--color-secondary);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         h2 {
-            color: var(--color-primary); /* 更新標題顏色 */
+            color: var(--color-primary);
             border-bottom: 2px solid var(--color-accent);
             padding-bottom: 10px;
             font-weight: bold;
             margin-bottom: 20px;
         }
         h3 {
-            color: var(--color-primary); /* 更新小標題顏色 */
+            color: var(--color-primary);
             margin-top: 20px;
             font-weight: bold;
         }
@@ -89,27 +83,25 @@
             color: var(--color-primary);
             padding: 20px;
             border-radius: 10px;
-            margin-top: 40px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .contact-info p {
-            margin: 10px 0;
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
         }
-        /* 設置響應式樣式 */
+        .main-content > div {
+            flex: 1;
+            min-width: 300px;
+            padding: 10px;
+        }
         @media (min-width: 600px) {
             .profile {
-                display: flex;
-                align-items: center;
                 text-align: left;
-            }
-            .profile img {
-                margin-right: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 頁首 -->
     <header>
         <div class="container">
             <h1>曾麒鴻 RESUME</h1>
@@ -117,104 +109,106 @@
     </header>
 
     <div class="container">
-        <!-- 個人簡介區塊 -->
-        <section class="profile">
-            <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
-            <div>
-                <h2>PROFILE</h2>
-                <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
+        <div class="content">
+            <section class="profile">
+                <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
+                <div>
+                    <h2>PROFILE</h2>
+                    <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
 好奇心強的我在大學期間參加系學會並擔任副會長，舉辦與協辦了許多大大小小
 的活動，每一個活動都需要細心的規劃以及建立良好的溝通才能讓預定好的流程
 能夠順暢運行，因此從中也累積了許多與他人合作與溝通的經驗，並且保持豐富
 的想像力使我在這一年的經驗中創造出了許多不一樣的回憶及成就。</p>
-                <p>喜歡挑戰的我選擇了物理系，系上有許多扎實的邏輯數學課程，也有充實的實驗
+                    <p>喜歡挑戰的我選擇了物理系，系上有許多扎實的邏輯數學課程，也有充實的實驗
 課程，在學間讓我培養了用邏輯及理論去思考問題的能力也讓我能夠進修碩士。
 實驗室主要是做光纖感測系統，包括使用既有的元件製造窄頻寬的雷射去當作感
 測光源，以及使用干涉儀及光譜儀來暸解光的特性並把收集到的數據使用軟體分
 析，對於光纖光學的一些系統也有比較多的暸解。</p>
-                <p>碩士期間也經歷了許多挑戰，在碩二剛開始就被告知需更換題目，導致原本的實
+                    <p>碩士期間也經歷了許多挑戰，在碩二剛開始就被告知需更換題目，導致原本的實
 驗結果形同虛設，但也因為如此我才能在另外一個方向上放手一搏，並經過許多
 次的來回討論也因為上個題目我把相關器材徹底了解，所以實驗進展相當迅速，
 便能在第二年學期末順利畢業。</p>
-            </div>
-        </section>
+                </div>
+            </section>
 
-        <!-- 工作經歷區塊 -->
-        <section class="section">
-            <h2>EXPERIENCE</h2>
-            <h3>Laptop Hardware Engineer</h3>
-            <h3>Compal Electronics</h3>
-            <p>Dec 2023 - Present</p>
-            <ul>
-                <li>PCB layout review(sub board and FPC)</li>
-                <li>Drawing schematic for NB（sub board）</li>
-                <li>Design FPC/FFC and check pin define</li>
-                <li>Rework electronic components</li>
-                <li>Load BOM and BOM compare</li>
-                <li>EA measure:
-                    <ol>
-                        <li>Panel power sequence</li>
-                        <li>Power ripple and power routing drop</li>
-                        <li>Eye diagram for EDP USB HDMI</li>
-                    </ol>
-                </li>
-            </ul>
+            <div class="main-content">
+                <div>
+                    <section class="section">
+                        <h2>EXPERIENCE</h2>
+                        <h3>Laptop Hardware Engineer</h3>
+                        <h3>Compal Electronics</h3>
+                        <p>Dec 2023 - Present</p>
+                        <ul>
+                            <li>PCB layout review(sub board and FPC)</li>
+                            <li>Drawing schematic for NB（sub board）</li>
+                            <li>Design FPC/FFC and check pin define</li>
+                            <li>Rework electronic components</li>
+                            <li>Load BOM and BOM compare</li>
+                            <li>EA measure:
+                                <ol>
+                                    <li>Panel power sequence</li>
+                                    <li>Power ripple and power routing drop</li>
+                                    <li>Eye diagram for EDP USB HDMI</li>
+                                </ol>
+                            </li>
+                        </ul>
 
-            <h3>Vice President of the Physics Student Council</h3>
-            <h3>Chung Yuan Christian University</h3>
-            <p>June 2019 - Oct 2020</p>
-            <ul>
-                <li>Led a team to organize various events.</li>
-                <li>Reviewing budgets for various activities.</li>
-                <li>Managing diversity among team members.</li>
-            </ul>
-        </section>
+                        <h3>Vice President of the Physics Student Council</h3>
+                        <h3>Chung Yuan Christian University</h3>
+                        <p>June 2019 - Oct 2020</p>
+                        <ul>
+                            <li>Led a team to organize various events.</li>
+                            <li>Reviewing budgets for various activities.</li>
+                            <li>Managing diversity among team members.</li>
+                        </ul>
+                    </section>
 
-        <!-- 教育背景區塊 -->
-        <section class="section">
-            <h2>EDUCATION</h2>
-            <h3>Master of Institute of Photonics Technologies</h3>
-            <h3>國立清華大學 National Tsing Hua University</h3>
-            <p>2021-2023</p>
-            <p>Master's research experience: By discussing and brainstorming within the existing experimental
+                    <section class="section">
+                        <h2>LANGUAGES</h2>
+                        <ul>
+                            <li>Mandarin</li>
+                            <li>English</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <div>
+                    <section class="section">
+                        <h2>EDUCATION</h2>
+                        <h3>Master of Institute of Photonics Technologies</h3>
+                        <h3>國立清華大學 National Tsing Hua University</h3>
+                        <p>2021-2023</p>
+                        <p>Master's research experience: By discussing and brainstorming within the existing experimental
 framework and using the available experimental equipment, we
 developed innovative topics and more efficient systems.</p>
 
-            <h3>Bachelor of Physics</h3>
-            <h3>中原大學 Chung Yuan Christian University</h3>
-            <p>2017-2021</p>
-        </section>
+                        <h3>Bachelor of Physics</h3>
+                        <h3>中原大學 Chung Yuan Christian University</h3>
+                        <p>2017-2021</p>
+                    </section>
 
-        <!-- 技能區塊 -->
-        <section class="section">
-            <h2>SKILLS</h2>
-            <ul>
-                <li>Narrow line width laser of fiber ring</li>
-                <li>Fiber sensor of FBG</li>
-                <li>Optical Time Domain Reflectometer</li>
-                <li>Matlab</li>
-                <li>Optical experiment set up</li>
-                <li>Arduino simple circuit system</li>
-                <li>Python</li>
-            </ul>
-        </section>
+                    <section class="section">
+                        <h2>SKILLS</h2>
+                        <ul>
+                            <li>Narrow line width laser of fiber ring</li>
+                            <li>Fiber sensor of FBG</li>
+                            <li>Optical Time Domain Reflectometer</li>
+                            <li>Matlab</li>
+                            <li>Optical experiment set up</li>
+                            <li>Arduino simple circuit system</li>
+                            <li>Python</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
 
-        <!-- 語言能力區塊 -->
-        <section class="section">
-            <h2>LANGUAGES</h2>
-            <ul>
-                <li>Mandarin</li>
-                <li>English</li>
-            </ul>
-        </section>
-
-        <!-- 聯絡資訊區塊 -->
-        <section class="contact-info">
-            <h2>CONTACT</h2>
-            <p>Email: tim87915@gmail.com</p>
-            <p>Phone: +886 0988885015</p>
-            <p>Address: 新北市板橋區板新路202號14樓</p>
-        </section>
+            <section class="contact-info">
+                <h2>CONTACT</h2>
+                <p>Email: tim87915@gmail.com</p>
+                <p>Phone: +886 0988885015</p>
+                <p>Address: 新北市板橋區板新路202號14樓</p>
+            </section>
+        </div>
     </div>
 </body>
 </html>
