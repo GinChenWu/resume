@@ -47,9 +47,20 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
-        .profile {
+        .profile-content {
+            display: none;
+        }
+        .profile.expanded .profile-content {
+            display: block;
+        }
+        .profile-header {
             display: flex;
             align-items: center;
+            cursor: pointer;
+        }
+        .profile-header h2 {
+            flex-grow: 1;
+            margin: 0;
         }
         .profile-image {
             width: 150px;
@@ -111,9 +122,11 @@
     <div class="container">
         <div class="content">
             <section class="profile">
-                <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
-                <div>
+                <div class="profile-header" onclick="toggleProfile()">
+                    <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
                     <h2>PROFILE</h2>
+                </div>
+                <div class="profile-content">
                     <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
 好奇心強的我在大學期間參加系學會並擔任副會長，舉辦與協辦了許多大大小小
 的活動，每一個活動都需要細心的規劃以及建立良好的溝通才能讓預定好的流程
@@ -210,5 +223,12 @@ developed innovative topics and more efficient systems.</p>
             </section>
         </div>
     </div>
+
+    <script>
+        function toggleProfile() {
+            var profile = document.querySelector('.profile');
+            profile.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>
