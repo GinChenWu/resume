@@ -69,6 +69,12 @@
             margin-right: 20px;
             object-fit: cover;
         }
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
         h2 {
             color: var(--color-primary);
             border-bottom: 2px solid var(--color-accent);
@@ -122,9 +128,10 @@
     <div class="container">
         <div class="content">
             <section class="profile">
-                <div class="profile-header" onclick="toggleProfile()">
+                <div class="profile-header">
                     <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
                     <h2>PROFILE</h2>
+                    <button class="toggle-btn" onclick="toggleProfile()">&#9660;</button>
                 </div>
                 <div class="profile-content">
                     <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
@@ -227,7 +234,13 @@ developed innovative topics and more efficient systems.</p>
     <script>
         function toggleProfile() {
             var profile = document.querySelector('.profile');
+            var button = document.querySelector('.toggle-btn');
             profile.classList.toggle('expanded');
+            if (profile.classList.contains('expanded')) {
+                button.innerHTML = '&#9650;';
+            } else {
+                button.innerHTML = '&#9660;';
+            }
         }
     </script>
 </body>
