@@ -58,7 +58,6 @@
             padding: 20px;
             background-color: var(--color-primary);
             color: var(--color-secondary);
-            cursor: pointer;
         }
         .profile-header h2 {
             flex-grow: 1;
@@ -74,23 +73,8 @@
             object-fit: cover;
             border: 3px solid var(--color-secondary);
         }
-        .toggle-btn {
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            color: var(--color-secondary);
-            transition: transform 0.3s ease;
-        }
         .profile-content {
             padding: 20px;
-            display: none;
-        }
-        .profile.expanded .profile-content {
-            display: block;
-        }
-        .profile.expanded .toggle-btn {
-            transform: rotate(180deg);
         }
         h2 {
             color: var(--color-primary);
@@ -179,10 +163,9 @@
 
     <div class="container">
         <section class="profile">
-            <div class="profile-header" onclick="toggleProfile()">
-                <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
+            <div class="profile-header">
+                <img src="/api/placeholder/150/150" alt="曾麒鴻的照片" class="profile-image">
                 <h2>PROFILE</h2>
-                <button class="toggle-btn">&#9660;</button>
             </div>
             <div class="profile-content">
                 <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
@@ -272,18 +255,5 @@
             <p>Address: 新北市板橋區板新路202號14樓</p>
         </section>
     </div>
-
-    <script>
-        function toggleProfile() {
-            var profile = document.querySelector('.profile');
-            var button = document.querySelector('.toggle-btn');
-            profile.classList.toggle('expanded');
-            if (profile.classList.contains('expanded')) {
-                button.innerHTML = '&#9650;';
-            } else {
-                button.innerHTML = '&#9660;';
-            }
-        }
-    </script>
 </body>
 </html>
