@@ -58,6 +58,7 @@
             padding: 20px;
             background-color: var(--color-primary);
             color: var(--color-secondary);
+            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
         }
         .profile-header h2 {
             flex-grow: 1;
@@ -75,6 +76,7 @@
         }
         .profile-content {
             padding: 20px;
+            display: none; /* Hide profile content by default */
         }
         h2 {
             color: var(--color-primary);
@@ -163,25 +165,14 @@
 
     <div class="container">
         <section class="profile">
-            <div class="profile-header">
+            <div class="profile-header" id="profile-header" onclick="toggleProfile()">
                 <img src="/api/placeholder/150/150" alt="曾麒鴻的照片" class="profile-image">
                 <h2>PROFILE</h2>
             </div>
-            <div class="profile-content">
-                <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。
-好奇心強的我在大學期間參加系學會並擔任副會長，舉辦與協辦了許多大大小小
-的活動，每一個活動都需要細心的規劃以及建立良好的溝通才能讓預定好的流程
-能夠順暢運行，因此從中也累積了許多與他人合作與溝通的經驗，並且保持豐富
-的想像力使我在這一年的經驗中創造出了許多不一樣的回憶及成就。</p>
-                <p>喜歡挑戰的我選擇了物理系，系上有許多扎實的邏輯數學課程，也有充實的實驗
-課程，在學間讓我培養了用邏輯及理論去思考問題的能力也讓我能夠進修碩士。
-實驗室主要是做光纖感測系統，包括使用既有的元件製造窄頻寬的雷射去當作感
-測光源，以及使用干涉儀及光譜儀來暸解光的特性並把收集到的數據使用軟體分
-析，對於光纖光學的一些系統也有比較多的暸解。</p>
-                <p>碩士期間也經歷了許多挑戰，在碩二剛開始就被告知需更換題目，導致原本的實
-驗結果形同虛設，但也因為如此我才能在另外一個方向上放手一搏，並經過許多
-次的來回討論也因為上個題目我把相關器材徹底了解，所以實驗進展相當迅速，
-便能在第二年學期末順利畢業。</p>
+            <div class="profile-content" id="profile-content" style="display: none;">
+                <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。好奇心強的我在大學期間參加系學會並擔任副會長，舉辦與協辦了許多大大小小的活動，每一個活動都需要細心的規劃以及建立良好的溝通才能讓預定好的流程能夠順暢運行，因此從中也累積了許多與他人合作與溝通的經驗，並且保持豐富的想像力使我在這一年的經驗中創造出了許多不一樣的回憶及成就。</p>
+                <p>喜歡挑戰的我選擇了物理系，系上有許多扎實的邏輯數學課程，也有充實的實驗課程，在學間讓我培養了用邏輯及理論去思考問題的能力也讓我能夠進修碩士。實驗室主要是做光纖感測系統，包括使用既有的元件製造窄頻寬的雷射去當作感測光源，以及使用干涉儀及光譜儀來暸解光的特性並把收集到的數據使用軟體分析，對於光纖光學的一些系統也有比較多的暸解。</p>
+                <p>碩士期間也經歷了許多挑戰，在碩二剛開始就被告知需更換題目，導致原本的實驗結果形同虛設，但也因為如此我才能在另外一個方向上放手一搏，並經過許多次的來回討論也因為上個題目我把相關器材徹底了解，所以實驗進展相當迅速，便能在第二年學期末順利畢業。</p>
             </div>
         </section>
 
@@ -224,9 +215,7 @@
                     <h3>Master of Institute of Photonics Technologies</h3>
                     <h3>國立清華大學 National Tsing Hua University</h3>
                     <p>2021-2023</p>
-                    <p>Master's research experience: By discussing and brainstorming within the existing experimental
-                    framework and using the available experimental equipment, we
-                    developed innovative topics and more efficient systems.</p>
+                    <p>Master's research experience: By discussing and brainstorming within the existing experimental framework and using the available experimental equipment, we developed innovative topics and more efficient systems.</p>
 
                     <h3>Bachelor of Physics</h3>
                     <h3>中原大學 Chung Yuan Christian University</h3>
@@ -255,5 +244,16 @@
             <p>Address: 新北市板橋區板新路202號14樓</p>
         </section>
     </div>
+
+    <script>
+        function toggleProfile() {
+            var profileContent = document.getElementById("profile-content");
+            if (profileContent.style.display === "none") {
+                profileContent.style.display = "block";
+            } else {
+                profileContent.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
