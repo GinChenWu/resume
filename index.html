@@ -3,187 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>曾麒鴻 - 個人網站</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>曾麒鴻的履歷</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <style>
         :root {
-            --color-background: #f0f4f8;
-            --color-text: #2d3748;
-            --color-primary: #4a5568;
-            --color-secondary: #ffffff;
-            --color-accent: #ed8936;
-            --color-hover: #edf2f7;
-            --font-family: 'Roboto', sans-serif;
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --background-color: #ecf0f1;
+            --text-color: #2c3e50;
         }
-        body {
-            font-family: var(--font-family);
-            line-height: 1.6;
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: var(--color-background);
-            color: var(--color-text);
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background-color: var(--color-primary);
-            color: var(--color-secondary);
-            padding: 50px 0;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-        .profile, .section, .contact-info {
-            background-color: var(--color-secondary);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .profile:hover, .section:hover, .contact-info:hover {
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-        .profile-header {
             display: flex;
-            align-items: center;
-            padding: 20px;
-            background-color: var(--color-primary);
-            color: var(--color-secondary);
-            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+            min-height: 100vh;
         }
-        .profile-header h2 {
-            flex-grow: 1;
-            margin: 0;
-            font-size: 1.8em;
-            font-weight: 700;
+        .left-column {
+            flex: 1;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
         }
-        .profile-image {
-            width: 150px;
-            height: 150px;
+        .right-column {
+            flex: 2;
+            padding: 2rem;
+            background-color: white;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            margin-right: 20px;
             object-fit: cover;
-            border: 3px solid var(--color-secondary);
+            margin-bottom: 1rem;
         }
-        .profile-content {
-            padding: 20px;
-            display: none; /* Hide profile content by default */
+        h1, h2 {
+            color: var(--accent-color);
         }
-        h2 {
-            color: var(--color-primary);
-            font-size: 2em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
+        .section {
+            margin-bottom: 2rem;
         }
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--color-accent);
+        .skill-bar {
+            background-color: var(--secondary-color);
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
         }
-        h3 {
-            color: var(--color-accent);
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-top: 20px;
-            margin-bottom: 10px;
+        .skill-progress {
+            background-color: var(--accent-color);
+            height: 100%;
+            border-radius: 5px;
         }
-        .section, .contact-info {
-            padding: 30px;
+        .collapsible {
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .active, .collapsible:hover {
+            background-color: var(--secondary-color);
         }
-        ul li {
-            padding: 8px 0;
-            position: relative;
-            padding-left: 20px;
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
         }
-        ul li::before {
-            content: '•';
-            color: var(--color-accent);
-            position: absolute;
-            left: 0;
-        }
-        .contact-info {
-            background-color: var(--color-primary);
-            color: var(--color-secondary);
-        }
-        .contact-info h2 {
-            color: var(--color-secondary);
-        }
-        .contact-info h2::after {
-            background-color: var(--color-secondary);
-        }
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            header {
-                padding: 30px 0;
-            }
-            header h1 {
-                font-size: 2.5em;
-            }
-            .profile-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .profile-image {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
+        .icon {
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>曾麒鴻 RESUME</h1>
-        </div>
-    </header>
-
     <div class="container">
-        <section class="profile">
-            <div class="profile-header" onclick="toggleProfile()">
-                <img src="image1.jpg" alt="曾麒鴻的照片" class="profile-image">
-                <h2>PROFILE</h2>
+        <div class="left-column">
+            <img src="/api/placeholder/200/200" alt="曾麒鴻的照片" class="profile-img">
+            <h1>曾麒鴻</h1>
+            <p>Laptop Hardware Engineer</p>
+            <div class="section">
+                <h2>聯絡方式</h2>
+                <p><i class="fas fa-envelope icon"></i> tim87915@gmail.com</p>
+                <p><i class="fas fa-phone icon"></i> +886 0988885015</p>
+                <p><i class="fas fa-map-marker-alt icon"></i> 新北市板橋區板新路202號14樓</p>
             </div>
-            <div class="profile-content" id="profile-content" style="display: none;">
-                <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。好奇心強的我在大學期間參加系學會並擔任副會長，舉辦與協辦了許多大大小小的活動，每一個活動都需要細心的規劃以及建立良好的溝通才能讓預定好的流程能夠順暢運行，因此從中也累積了許多與他人合作與溝通的經驗，並且保持豐富的想像力使我在這一年的經驗中創造出了許多不一樣的回憶及成就。</p>
-                <p>喜歡挑戰的我選擇了物理系，系上有許多扎實的邏輯數學課程，也有充實的實驗課程，在學間讓我培養了用邏輯及理論去思考問題的能力也讓我能夠進修碩士。實驗室主要是做光纖感測系統，包括使用既有的元件製造窄頻寬的雷射去當作感測光源，以及使用干涉儀及光譜儀來暸解光的特性並把收集到的數據使用軟體分析，對於光纖光學的一些系統也有比較多的暸解。</p>
-                <p>碩士期間也經歷了許多挑戰，在碩二剛開始就被告知需更換題目，導致原本的實驗結果形同虛設，但也因為如此我才能在另外一個方向上放手一搏，並經過許多次的來回討論也因為上個題目我把相關器材徹底了解，所以實驗進展相當迅速，便能在第二年學期末順利畢業。</p>
+            <div class="section">
+                <h2>語言能力</h2>
+                <p>英語</p>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                <p>中文</p>
+                <div class="skill-bar"><div class="skill-progress" style="width: 100%;"></div></div>
             </div>
-        </section>
+            <div class="section">
+                <h2>技能</h2>
+                <p>PCB layout review</p>
+                <p>Schematic drawing</p>
+                <p>FPC/FFC design</p>
+                <p>Electronic components rework</p>
+                <p>BOM management</p>
+                <p>EA measure</p>
+                <p>Matlab</p>
+                <p>Arduino</p>
+                <p>Python</p>
+            </div>
+        </div>
+        <div class="right-column">
+            <button class="collapsible">個人簡介</button>
+            <div class="content">
+                <p>您好，我是曾麒鴻，畢業於中原大學物理系及清大光電所。我擁有強烈的好奇心和挑戰精神，在學術和實踐中都展現了優秀的能力。在大學期間，我擔任系學會副會長，組織了多項活動，培養了出色的溝通和合作能力。我的學術背景包括扎實的物理和光電知識，以及豐富的實驗經驗。我善於運用邏輯思維解決問題，並且能夠靈活應對挑戰。目前，我在仁寶電腦擔任Laptop Hardware Engineer，專注於硬件設計和測試。</p>
+            </div>
 
-        <div class="main-content">
-            <div>
-                <section class="section">
-                    <h2>EXPERIENCE</h2>
-                    <h3>Laptop Hardware Engineer</h3>
-                    <h3>Compal Electronics</h3>
-                    <p>Dec 2023 - Present</p>
-                    <ul>
-                        <li>PCB layout review(sub board and FPC)</li>
-                        <li>Drawing schematic for
+            <div class="section">
+                <h2>工作經驗</h2>
+                <h3>Laptop Hardware Engineer - 仁寶電腦</h3>
+                <p>2023年12月 - 至今</p>
+                <ul>
+                    <li>PCB layout review (子板和FPC)</li>
+                    <li>繪製筆記本電腦（子板）的原理圖</li>
+                    <li>設計FPC/FFC並檢查引腳定義</li>
+                    <li>電子元件返工</li>
+                    <li>加載BOM和BOM比較</li>
+                    <li>EA測量：面板電源順序、電源紋波和電源路由降壓、EDP USB HDMI的眼圖</li>
+                </ul>
+
+                <h3>副會長 - 中原大學物理系學生會</h3>
+                <p>2019年6月 - 2020年10月</p>
+                <ul>
+                    <li>帶領團隊組織各種活動</li>
+                    <li>審核各項活動預算</li>
+                    <li>管理團隊成員多樣性</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>教育背景</h2>
+                <h3>光電科技研究所碩士 - 國立清華大學</h3>
+                <p>2021年 - 2023年</p>
+                <p>畢業於光電科技研究所，專注於光纖感測系統研究。</p>
+
+                <h3>物理學士 - 中原大學</h3>
+                <p>2017年 - 2021年</p>
+                <p>主修物理，培養了扎實的邏輯思維和實驗能力。</p>
+            </div>
+
+            <div class="section">
+                <h2>研究經驗</h2>
+                <h3>碩士研究經驗 - 國立清華大學</h3>
+                <p>2022年8月 - 2023年7月</p>
+                <p>在現有實驗框架內進行討論和頭腦風暴，利用可用的實驗設備，開發創新課題和更高效的系統。研究領域包括：</p>
+                <ul>
+                    <li>光纖環形窄線寬激光器</li>
+                    <li>光纖光柵傳感器</li>
+                    <li>光時域反射計</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
 </html>
